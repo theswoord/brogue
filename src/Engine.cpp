@@ -2,7 +2,7 @@
 
 
 Engine::Engine(int screenWidth, int screenHeight) : gameStatus(STARTUP),fovRadius(10),screenWidth(screenWidth),screenHeight(screenHeight) {
-    TCODConsole::initRoot(screenWidth,screenHeight,"1337rogue",false);
+    TCODConsole::initRoot(screenWidth,screenHeight,"1337rogue",true);
     player = new Actor(40,25,'*',"theswoord",TCODColor::white);
 	    player->destructible=new PlayerDestructible(50,5,"jotta");
     player->attacker=new Attacker(5);

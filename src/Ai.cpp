@@ -179,8 +179,8 @@ void PlayerAi::handleActionKey(Actor *owner, int ascii)
 
 Actor *PlayerAi::choseFromInventory(Actor *owner)
 {
-    static const int INVENTORY_WIDTH = 50;
-    static const int INVENTORY_HEIGHT = 28;
+    static const int INVENTORY_WIDTH = 30;
+    static const int INVENTORY_HEIGHT = 18;
     static TCODConsole con(INVENTORY_WIDTH, INVENTORY_HEIGHT); // display the inventory frame
     con.setDefaultForeground(TCODColor(200, 180, 50));
     con.printFrame(0, 0, INVENTORY_WIDTH, INVENTORY_HEIGHT, true,
@@ -209,7 +209,10 @@ Actor *PlayerAi::choseFromInventory(Actor *owner)
         if (actorIndex >= 0 && actorIndex < owner->container->inventory.size())
         {
             return owner->container->inventory.get(actorIndex);
+
         }
     }
+            exit(1);
+
     return NULL;
 }

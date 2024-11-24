@@ -2,10 +2,10 @@
 #include <stdarg.h>
 #include "main.hpp"
 
-static const int PANEL_HEIGHT = 40;
-static const int BAR_WIDTH = 40;
-static const int MSG_X =  2;
-static const int MSG_HEIGHT =  26;
+static const int PANEL_HEIGHT = 7;
+static const int BAR_WIDTH = 20;
+static const int MSG_X = BAR_WIDTH + 2;
+static const int MSG_HEIGHT = PANEL_HEIGHT - 1;
 
 Gui::Gui()
 {
@@ -35,7 +35,7 @@ void Gui::render()
         Message *message = *it;
 
         con->setDefaultForeground(message->col * colorCoef);
-        con->print(MSG_X+1, y+2, message->text);
+        con->print(MSG_X, y, message->text);
 
         y++;
         if (colorCoef < 1.0f)
@@ -44,7 +44,7 @@ void Gui::render()
         }
     }
     renderMouseLook();
-    TCODConsole::blit(con, 0, 0, engine.screenWidth, PANEL_HEIGHT, TCODConsole::root, 0, engine.screenHeight - (PANEL_HEIGHT + 10));
+    TCODConsole::blit(con, 0, 0, engine.screenWidth, PANEL_HEIGHT, TCODConsole::root, 0, engine.screenHeight - PANEL_HEIGHT);
 }
 
 void Gui::renderBar(int x, int y, int width, const char *name,

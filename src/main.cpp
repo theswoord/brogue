@@ -1,7 +1,7 @@
 #include "main.hpp"
 
 
-Engine engine(150,150);
+Engine engine(80,50);
 
 float rnadomfloat(int min, int max)
 {
